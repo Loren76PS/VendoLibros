@@ -1,0 +1,41 @@
+AppBundle\Entity\LibroHasEtiqueta:
+    type: entity
+    table: libro_has_etiqueta
+    indexes:
+        fk_libro_has_etiqueta_libro1:
+            columns:
+                - libro_id
+        fk_libro_has_etiqueta_etiqueta1:
+            columns:
+                - etiqueta_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        etiqueta:
+            targetEntity: Etiqueta
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                etiqueta_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        libro:
+            targetEntity: Libro
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                libro_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

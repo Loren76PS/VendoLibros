@@ -1,0 +1,116 @@
+AppBundle\Entity\Usuario:
+    type: entity
+    table: usuario
+    uniqueConstraints:
+        UNIQ_2265B05D92FC23A8:
+            columns:
+                - username_canonical
+        UNIQ_2265B05DA0D96FBF:
+            columns:
+                - email_canonical
+        UNIQ_2265B05DC05FB297:
+            columns:
+                - confirmation_token
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        email:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        nombre:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        nick:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        provincia:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        localidad:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        cp:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        username:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        usernameCanonical:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+            column: username_canonical
+        emailCanonical:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+            column: email_canonical
+        enabled:
+            type: boolean
+            nullable: false
+        salt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        lastLogin:
+            type: datetime
+            nullable: true
+            column: last_login
+        confirmationToken:
+            type: string
+            nullable: true
+            length: 180
+            options:
+                fixed: false
+            column: confirmation_token
+        passwordRequestedAt:
+            type: datetime
+            nullable: true
+            column: password_requested_at
+        roles:
+            type: array
+            nullable: false
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

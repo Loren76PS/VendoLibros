@@ -1,0 +1,41 @@
+AppBundle\Entity\ApuntesHasEtiqueta:
+    type: entity
+    table: apuntes_has_etiqueta
+    indexes:
+        fk_apuntes_has_etiqueta_apuntes1:
+            columns:
+                - apuntes_id
+        fk_apuntes_has_etiqueta_etiqueta1:
+            columns:
+                - etiqueta_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        apuntes:
+            targetEntity: Apuntes
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                apuntes_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        etiqueta:
+            targetEntity: Etiqueta
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                etiqueta_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
